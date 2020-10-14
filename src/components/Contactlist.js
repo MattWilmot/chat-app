@@ -1,7 +1,8 @@
 
-const userData = () => {
+import React from 'react'
+import Contact from "./Contact"
 
-const user = [
+const users = [
 {
     name:"Rosa Newman",
     avatar:"https://randomuser.me/api/portraits/women/15.jpg",
@@ -9,8 +10,8 @@ const user = [
 },
 
 {
-    name="Olivia Masone",
-    avatar="https://randomuser.me/api/portraits/women/35.jpg",
+    name:"Olivia Masone",
+    avatar:"https://randomuser.me/api/portraits/women/35.jpg",
     online: false
 },
 
@@ -33,22 +34,13 @@ const user = [
   }
 ];
 
-
-    
-        {user.map(item => (
-    <div className="Contact">
-            <img className="avatar" src={item.avatar} alt={item.name}/>        
-            <div>
-            <p className="name">{item.name}</p>
-            <div className="status">
-            <div className={item.online ? 'status-online' : 'status-offline'}></div>
-            <div className="status-text">{item.online ? 'online' : 'offline'}</div>
-            </div>
-        </div>
+const ContactList = () => (
+    <div>
+        {users.map(e => <Contact name={e.name} avatar={e.avatar} online={e.online}/>)}
     </div>
-           ))};
-};
+)
 
 
 
-export default userData
+
+export default ContactList
